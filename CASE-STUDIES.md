@@ -297,7 +297,7 @@ COMPLIANCE REMEDIATION:
 ```
 ╔═════════════════════════════════════════════════════════╗
 ║   To discuss a specific engagement:                     ║
-║   📧 stefanowien777@gmail.com                           ║
+║   📧 contact@localpulse.pro                          ║
 ║   📅 cal.com/ciprian-stefan-plesca                      ║
 ╚═════════════════════════════════════════════════════════╝
 ```
