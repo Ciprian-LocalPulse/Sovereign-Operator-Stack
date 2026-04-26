@@ -15,7 +15,7 @@ If you have identified a security vulnerability in any system under this practic
 
 ### Contact
 
-**Email:** stefanowien777@gmail.com
+**Email:** contact@localpulse.pro
 **Subject line:** `[SECURITY] Brief description — do not include full technical details in subject`
 
 ### What to Include
