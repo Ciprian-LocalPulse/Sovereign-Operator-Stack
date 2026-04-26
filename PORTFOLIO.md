@@ -318,7 +318,7 @@ All five systems share a common set of engineering constraints:
 ```
 ╔═════════════════════════════════════════════════════════╗
 ║   For engagement or acquisition enquiries:              ║
-║   📧 stefanowien777@gmail.com                           ║
+║   📧 contact@localpulse.pro                         ║
 ║   📅 cal.com/ciprian-stefan-plesca                      ║
 ╚═════════════════════════════════════════════════════════╝
 ```
