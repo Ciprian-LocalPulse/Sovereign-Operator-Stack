@@ -217,7 +217,7 @@ WHAT IS NOT ONBOARDED:
 |:---|:---|
 | 🌐 Official Gateway | [localpulse.pro](https://www.localpulse.pro) |
 | 📅 Private Briefing | [cal.com/ciprian-stefan-plesca](https://cal.com/ciprian-stefan-plesca) |
-| 📧 Direct Communication | stefanowien777@gmail.com |
+| 📧 Direct Communication | contact@localpulse.pro |
 | 📞 Executive Line | +40 759 687 560 |
 
 → [Full Contact & Access Protocols](../CONTACT.md)
