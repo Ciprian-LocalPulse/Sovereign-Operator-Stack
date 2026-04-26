@@ -31,7 +31,7 @@ operator:
   operational_base:  "EU / Remote-First / Globally Deployable"
 
 contact:
-  email:             "stefanowien777@gmail.com"
+  email:             "contact@localpulse.pro"
   phone:             "+40 759 687 560"
   web:               "https://www.localpulse.pro"
   booking:           "https://cal.com/ciprian-stefan-plesca"
@@ -133,7 +133,7 @@ CONTRACTS:      Estonian / EU commercial law · International arbitration availa
 ║   Xolo Go OÜ — Ciprian-Stefan Plesca                   ║
 ║   Estonian Business Registry · Code: 14717109           ║
 ║   EU VAT: EE102156920                                   ║
-║   localpulse.pro · stefanowien777@gmail.com             ║
+║   localpulse.pro ·contact@localpulse.pro           ║
 ╚═════════════════════════════════════════════════════════╝
 ```
 
