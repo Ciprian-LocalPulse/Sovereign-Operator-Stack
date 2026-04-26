@@ -237,7 +237,7 @@ nda:             "Available on request post-qualification"
 ╔═════════════════════════════════════════════════════════╗
 ║   Ready to begin? Start here:                           ║
 ║   📅 cal.com/ciprian-stefan-plesca                      ║
-║   📧 stefanowien777@gmail.com                           ║
+║   📧 contact@localpulse.pro                       ║
 ╚═════════════════════════════════════════════════════════╝
 ```
 
