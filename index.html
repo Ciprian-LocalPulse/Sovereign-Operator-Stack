@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciprian Stefan Plesca — Sovereign AI Architect</title>
+<meta name="description" content="Sovereign AI Infrastructure. Zero-Trust Architecture. Enterprise Automation. Xolo Go OÜ — Estonia — EE102156920">
+<meta property="og:title" content="Ciprian Stefan Plesca — Sovereign AI Architect">
+<meta property="og:description" content="Engineering private AI infrastructure and security-first systems for operators who cannot afford fragile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.localpulse.pro">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:         #07090D;
+  --bg-2:       #0C0F16;
+  --bg-3:       #111520;
+  --green:      #00E87A;
+  --green-dim:  #00994F;
+  --blue:       #1A6BFF;
+  --gold:       #C8A84A;
+  --red:        #FF3B5C;
+  --text-1:     #EDF0F7;
+  --text-2:     #8A93A8;
+  --text-3:     #4A5268;
+  --border:     rgba(255,255,255,0.055);
+  --border-2:   rgba(255,255,255,0.10);
+  --glow-g:     rgba(0,232,122,0.12);
+  --glow-b:     rgba(26,107,255,0.12);
+  --mono:       'JetBrains Mono', monospace;
+  --display:    'Cormorant Garamond', Georgia, serif;
+  --body:       'Crimson Pro', Georgia, serif;
+}
+
+html{scroll-behavior:smooth;cursor:none}
+
+body{
+  background:var(--bg);
+  color:var(--text-1);
+  font-family:var(--body);
+  font-size:18px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor{
+  position:fixed;width:10px;height:10px;
+  border:1.5px solid var(--green);
+  border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:width .2s,height .2s,border-color .2s,background .2s;
+  z-index:9999;mix-blend-mode:difference;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(0,232,122,0.3);
+  border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:all .12s ease-out;
+  z-index:9998;
+}
+body:hover .cursor{background:var(--green)}
+a:hover~.cursor,.cursor.hover{width:20px;height:20px;background:transparent}
+
+/* ── BACKGROUND GRID ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,232,122,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,232,122,0.02) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 15% 20%,rgba(26,107,255,0.04) 0%,transparent 60%),
+              radial-gradient(ellipse 50% 50% at 85% 80%,rgba(0,232,122,0.05) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── SCANLINE ── */
+.scanline{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(7,9,13,0.7);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s;
+}
+.nav-logo{
+  font-family:var(--mono);font-size:11px;letter-spacing:.15em;
+  color:var(--text-2);text-transform:uppercase;text-decoration:none;
+}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--text-3);text-decoration:none;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--text-1)}
+.nav-badge{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  background:rgba(0,232,122,0.08);border:1px solid rgba(0,232,122,0.2);
+  color:var(--green);padding:5px 12px;border-radius:2px;text-transform:uppercase;
+}
+.nav-cta{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--green);color:#000;padding:9px 20px;border-radius:2px;
+  text-decoration:none;transition:all .2s;font-weight:500;
+}
+.nav-cta:hover{background:#00FF88;box-shadow:0 0 20px rgba(0,232,122,0.4)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 48px 80px;z-index:2;
+  border-bottom:1px solid var(--border);
+}
+.hero-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--green);
+  text-transform:uppercase;margin-bottom:32px;
+  display:flex;align-items:center;gap:12px;
+  opacity:0;animation:fadeUp .6s .2s forwards;
+}
+.hero-tag::before{content:'';width:40px;height:1px;background:var(--green)}
+.hero-name{
+  font-family:var(--display);font-size:clamp(52px,7vw,100px);
+  font-weight:300;line-height:1.0;letter-spacing:-.01em;
+  color:var(--text-1);margin-bottom:8px;
+  opacity:0;animation:fadeUp .7s .35s forwards;
+}
+.hero-name em{font-style:italic;color:var(--text-2)}
+.hero-title{
+  font-family:var(--display);font-size:clamp(18px,2.5vw,30px);
+  font-weight:300;font-style:italic;color:var(--text-2);
+  margin-bottom:52px;
+  opacity:0;animation:fadeUp .7s .5s forwards;
+}
+.hero-desc{
+  max-width:540px;font-size:clamp(16px,1.5vw,19px);
+  color:var(--text-2);line-height:1.8;margin-bottom:52px;
+  opacity:0;animation:fadeUp .7s .65s forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .7s .8s forwards;
+}
+.btn-primary{
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  background:var(--green);color:#000;padding:14px 28px;
+  text-decoration:none;transition:all .25s;font-weight:500;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-primary:hover{background:#00FF88;box-shadow:0 0 30px rgba(0,232,122,0.4);transform:translateY(-1px)}
+.btn-secondary{
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  border:1px solid var(--border-2);color:var(--text-2);padding:14px 28px;
+  text-decoration:none;transition:all .25s;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-secondary:hover{border-color:var(--text-3);color:var(--text-1);transform:translateY(-1px)}
+
+.hero-meta{
+  position:absolute;bottom:48px;right:48px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.12em;
+  color:var(--text-3);text-transform:uppercase;text-align:right;
+  opacity:0;animation:fadeUp .7s 1s forwards;
+}
+.hero-meta div{margin-bottom:4px}
+.hero-meta span{color:var(--text-2)}
+
+.hero-line{
+  position:absolute;top:0;right:200px;width:1px;
+  height:100%;background:linear-gradient(to bottom,transparent,var(--border) 30%,var(--border) 70%,transparent);
+}
+.hero-vcode{
+  position:absolute;top:50%;right:48px;transform:translateY(-50%);
+  font-family:var(--mono);font-size:8px;letter-spacing:.08em;
+  color:var(--text-3);text-transform:uppercase;
+  writing-mode:vertical-rl;opacity:0;animation:fadeIn 1s 1.2s forwards;
+}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:2}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 48px}
+.section-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  color:var(--text-3);text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-label::before{content:'';width:24px;height:1px;background:var(--text-3)}
+.section-title{
+  font-family:var(--display);font-size:clamp(32px,4vw,56px);
+  font-weight:300;line-height:1.1;color:var(--text-1);
+}
+.section-title em{font-style:italic;color:var(--text-2)}
+
+/* ── MANIFEST ── */
+#manifest{padding:100px 0;border-bottom:1px solid var(--border)}
+.manifest-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:start;margin-top:60px;
+}
+.manifest-statement{
+  font-family:var(--display);font-size:clamp(20px,2.2vw,28px);
+  font-weight:300;line-height:1.6;color:var(--text-1);
+}
+.manifest-statement strong{color:var(--green);font-weight:400}
+.manifest-axioms{display:flex;flex-direction:column;gap:0}
+.axiom-row{
+  padding:16px 0;border-bottom:1px solid var(--border);
+  display:flex;gap:20px;align-items:baseline;
+  transition:all .2s;
+}
+.axiom-row:hover{padding-left:8px}
+.axiom-row:first-child{border-top:1px solid var(--border)}
+.axiom-num{
+  font-family:var(--mono);font-size:9px;color:var(--green);
+  letter-spacing:.1em;min-width:36px;
+}
+.axiom-text{font-size:15px;color:var(--text-2);line-height:1.5}
+.axiom-row:hover .axiom-text{color:var(--text-1)}
+
+/* ── DOMAINS ── */
+#domains{padding:100px 0;border-bottom:1px solid var(--border)}
+.domains-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  margin-top:60px;background:var(--border);
+}
+.domain-card{
+  background:var(--bg);padding:40px 36px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.domain-card::before{
+  content:'';position:absolute;inset:0;
+  background:var(--glow-g);opacity:0;transition:opacity .3s;
+}
+.domain-card:hover::before{opacity:1}
+.domain-card:hover{background:var(--bg-2)}
+.domain-num{
+  font-family:var(--mono);font-size:9px;letter-spacing:.15em;
+  color:var(--text-3);margin-bottom:24px;
+}
+.domain-icon{font-size:24px;margin-bottom:20px;display:block}
+.domain-name{
+  font-family:var(--display);font-size:22px;font-weight:400;
+  color:var(--text-1);margin-bottom:16px;line-height:1.2;
+}
+.domain-desc{font-size:14px;color:var(--text-2);line-height:1.7}
+.domain-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.tag{
+  font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+  color:var(--text-3);border:1px solid var(--border);
+  padding:3px 8px;text-transform:uppercase;
+}
+
+/* ── SYSTEMS ── */
+#systems{padding:100px 0;border-bottom:1px solid var(--border)}
+.systems-table{
+  width:100%;border-collapse:collapse;margin-top:60px;
+}
+.systems-table th{
+  font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--text-3);text-align:left;padding:12px 20px;
+  border-bottom:1px solid var(--border-2);
+}
+.systems-table td{
+  padding:22px 20px;border-bottom:1px solid var(--border);
+  transition:background .2s;
+}
+.systems-table tr:hover td{background:var(--bg-2)}
+.sys-id{font-family:var(--mono);font-size:10px;color:var(--text-3)}
+.sys-name{
+  font-family:var(--display);font-size:20px;font-weight:400;color:var(--text-1);
+}
+.sys-icon{margin-right:8px}
+.sys-class{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+  color:var(--blue);border:1px solid rgba(26,107,255,0.2);
+  background:rgba(26,107,255,0.06);padding:4px 10px;
+  text-transform:uppercase;display:inline-block;
+}
+.sys-posture{font-size:13px;color:var(--text-2);font-family:var(--mono)}
+.sys-status{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  color:var(--green);text-transform:uppercase;
+}
+.sys-status::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--green);box-shadow:0 0 6px var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── PHILOSOPHY ── */
+#philosophy{
+  padding:120px 0;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 50%,var(--bg) 100%);
+}
+.philosophy-quote{
+  font-family:var(--display);font-size:clamp(28px,3.5vw,48px);
+  font-weight:300;font-style:italic;line-height:1.4;
+  color:var(--text-1);text-align:center;max-width:800px;
+  margin:0 auto 24px;
+}
+.philosophy-author{
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  color:var(--text-3);text-align:center;text-transform:uppercase;
+}
+.philosophy-divider{
+  width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--border-2),transparent);
+  margin:60px auto;
+}
+.principles-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--border);border-left:1px solid var(--border);
+  margin-top:80px;
+}
+.principle{
+  padding:36px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .3s;
+}
+.principle:hover{background:var(--bg-3)}
+.principle-code{
+  font-family:var(--mono);font-size:9px;color:var(--gold);
+  letter-spacing:.15em;margin-bottom:12px;
+}
+.principle-text{font-size:15px;color:var(--text-2);line-height:1.6}
+.principle:hover .principle-text{color:var(--text-1)}
+
+/* ── SERVICES ── */
+#services{padding:100px 0;border-bottom:1px solid var(--border)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  margin-top:60px;background:var(--border);
+}
+.service-card{
+  background:var(--bg);padding:44px 40px;
+  position:relative;overflow:hidden;transition:all .3s;
+}
+.service-card::after{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:0;background:var(--green);
+  transition:height .4s ease;
+}
+.service-card:hover::after{height:100%}
+.service-card:hover{background:var(--bg-2)}
+.service-num{
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;
+  color:var(--green);margin-bottom:20px;
+}
+.service-name{
+  font-family:var(--display);font-size:24px;font-weight:400;
+  color:var(--text-1);margin-bottom:16px;line-height:1.2;
+}
+.service-desc{font-size:15px;color:var(--text-2);line-height:1.7;margin-bottom:20px}
+.service-deliverables{
+  font-family:var(--mono);font-size:10px;color:var(--text-3);
+  line-height:1.8;
+}
+.service-deliverables span{color:var(--green);margin-right:6px}
+.service-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-3);text-decoration:none;margin-top:24px;
+  transition:color .2s;
+}
+.service-link:hover{color:var(--green)}
+.service-link::after{content:'→';transition:transform .2s}
+.service-link:hover::after{transform:translateX(4px)}
+
+/* ── ENTITY ── */
+#entity{padding:100px 0;border-bottom:1px solid var(--border)}
+.entity-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  margin-top:60px;align-items:start;
+}
+.entity-block{
+  font-family:var(--mono);font-size:11px;
+  border:1px solid var(--border);padding:32px;
+  background:var(--bg-2);
+}
+.entity-block-title{
+  font-size:9px;letter-spacing:.2em;color:var(--text-3);
+  text-transform:uppercase;margin-bottom:20px;padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.entity-row{
+  display:flex;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid var(--border);gap:16px;
+}
+.entity-row:last-child{border-bottom:none}
+.entity-key{color:var(--text-3)}
+.entity-val{color:var(--text-1);text-align:right}
+.entity-val.green{color:var(--green)}
+.entity-val.gold{color:var(--gold)}
+.trust-signals{display:flex;flex-direction:column;gap:16px}
+.trust-item{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px;border:1px solid var(--border);
+  transition:border-color .2s;
+}
+.trust-item:hover{border-color:var(--border-2)}
+.trust-icon{
+  font-size:20px;min-width:32px;
+  display:flex;align-items:center;justify-content:center;
+}
+.trust-label{
+  font-family:var(--mono);font-size:10px;color:var(--text-3);
+  letter-spacing:.08em;margin-bottom:4px;text-transform:uppercase;
+}
+.trust-value{font-size:14px;color:var(--text-1)}
+
+/* ── METRICS ── */
+#metrics{
+  padding:80px 0;border-bottom:1px solid var(--border);
+  background:var(--bg-2);
+}
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);
+}
+.metric{
+  background:var(--bg-2);padding:40px 32px;text-align:center;
+  transition:background .2s;
+}
+.metric:hover{background:var(--bg-3)}
+.metric-num{
+  font-family:var(--display);font-size:52px;font-weight:300;
+  color:var(--text-1);line-height:1;margin-bottom:8px;
+}
+.metric-num em{font-style:normal;color:var(--green)}
+.metric-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.15em;
+  color:var(--text-3);text-transform:uppercase;
+}
+
+/* ── CTA ── */
+#cta{
+  padding:140px 0;
+  background:radial-gradient(ellipse 80% 80% at 50% 100%,rgba(0,232,122,0.05) 0%,transparent 70%);
+}
+.cta-inner{text-align:center;max-width:720px;margin:0 auto}
+.cta-tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--green);
+  text-transform:uppercase;margin-bottom:24px;display:block;
+}
+.cta-title{
+  font-family:var(--display);font-size:clamp(36px,5vw,68px);
+  font-weight:300;line-height:1.1;color:var(--text-1);margin-bottom:24px;
+}
+.cta-title em{font-style:italic;color:var(--text-2)}
+.cta-sub{
+  font-size:17px;color:var(--text-2);margin-bottom:48px;
+  font-family:var(--display);
+}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.cta-contact{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:var(--text-3);text-align:center;
+}
+.cta-contact a{color:var(--text-2);text-decoration:none;transition:color .2s}
+.cta-contact a:hover{color:var(--text-1)}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:48px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:24px;position:relative;z-index:2;
+}
+.footer-entity{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  color:var(--text-3);text-transform:uppercase;line-height:1.8;
+}
+.footer-entity span{color:var(--text-2)}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-3);text-decoration:none;
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--text-1)}
+.footer-copy{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+  color:var(--text-3);width:100%;margin-top:16px;
+  border-top:1px solid var(--border);padding-top:20px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--text-3)}
+
+/* ── TERMINAL BLINK ── */
+.blink{animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  #hero{padding:120px 24px 60px}
+  .hero-meta,.hero-line,.hero-vcode{display:none}
+  .section-inner{padding:0 24px}
+  .manifest-grid,.entity-grid{grid-template-columns:1fr;gap:40px}
+  .domains-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .principles-grid{grid-template-columns:1fr}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scanline"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo"><span>//</span> CSP</a>
+  <div class="nav-links">
+    <a href="#manifest">Doctrine</a>
+    <a href="#domains">Domains</a>
+    <a href="#systems">Systems</a>
+    <a href="#services">Services</a>
+    <a href="#entity">Entity</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="nav-badge">EU VAT · EE102156920</div>
+    <a href="https://cal.com/ciprian-stefan-plesca" class="nav-cta" target="_blank">Book Briefing</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-line"></div>
+  <div class="hero-vcode">SOVEREIGN OPERATOR // CLEARANCE VERIFIED // CSP-2025</div>
+
+  <div class="hero-tag">Classified Operational Profile</div>
+
+  <h1 class="hero-name">Ciprian<br><em>Stefan Plesca</em></h1>
+  <p class="hero-title">Sovereign AI Architect &nbsp;·&nbsp; Zero-Trust Systems Engineer</p>
+
+  <p class="hero-desc">
+    Engineering private AI infrastructure, security-first automation ecosystems,
+    and high-trust digital architectures for founders, operators, and organisations
+    that cannot tolerate fragile systems.
+  </p>
+
+  <div class="hero-actions">
+    <a href="https://cal.com/ciprian-stefan-plesca" class="btn-primary" target="_blank">
+      → Private Technical Briefing
+    </a>
+    <a href="#services" class="btn-secondary">
+      View Engagement Catalogue
+    </a>
+  </div>
+
+  <div class="hero-meta">
+    <div>Entity <span>Xolo Go OÜ</span></div>
+    <div>Registry <span>14717109 · Estonia</span></div>
+    <div>EU VAT <span>EE102156920</span></div>
+    <div>Web <span>localpulse.pro</span></div>
+  </div>
+</section>
+
+<!-- MANIFEST -->
+<section id="manifest">
+  <div class="section-inner">
+    <div class="section-label reveal">Engineering Doctrine</div>
+    <h2 class="section-title reveal reveal-delay-1">What this<br><em>practice is</em></h2>
+
+    <div class="manifest-grid">
+      <div class="manifest-statement reveal reveal-delay-2">
+        Most technical practices optimise for <strong>noise</strong> —
+        visibility, engagement, follower count.<br><br>
+        This practice is built for <strong>trust</strong>, <strong>leverage</strong>,
+        and <strong>sovereignty</strong>.<br><br>
+        Every system engineered here is designed to be auditable, owned,
+        and capable of operating without dependency on third-party trust anchors.
+      </div>
+      <div class="manifest-axioms reveal reveal-delay-3">
+        <div class="axiom-row"><span class="axiom-num">AX·01</span><span class="axiom-text">Security is a design constraint, not a product feature.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·02</span><span class="axiom-text">Sovereignty is non-negotiable. What you don't own, owns you.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·03</span><span class="axiom-text">Trust nothing. Verify everything. Log the verification.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·04</span><span class="axiom-text">Weak systems create noise. Strong systems create leverage.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·05</span><span class="axiom-text">Automation without governance is technical debt with a timer.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·06</span><span class="axiom-text">Compliance is the floor. Sovereignty is the ceiling.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·07</span><span class="axiom-text">The perimeter is dead. Identity is the new firewall.</span></div>
+        <div class="axiom-row"><span class="axiom-num">AX·08</span><span class="axiom-text">If it isn't logged, it didn't happen.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section id="domains">
+  <div class="section-inner">
+    <div class="section-label reveal">Operational Surface</div>
+    <h2 class="section-title reveal reveal-delay-1">Core <em>domains</em></h2>
+  </div>
+  <div class="section-inner" style="margin-top:0">
+    <div class="domains-grid" style="margin-top:60px">
+      <div class="domain-card reveal">
+        <div class="domain-num">01 // DOMAIN</div>
+        <span class="domain-icon">🏛️</span>
+        <div class="domain-name">Sovereign AI Infrastructure</div>
+        <div class="domain-desc">Private, self-hosted, compliance-aware AI systems designed for operators who understand that cloud AI is a shared responsibility — not a security strategy.</div>
+        <div class="domain-tags">
+          <span class="tag">Self-hosted LLM</span>
+          <span class="tag">Air-gap capable</span>
+          <span class="tag">Data residency</span>
+        </div>
+      </div>
+      <div class="domain-card reveal reveal-delay-1">
+        <div class="domain-num">02 // DOMAIN</div>
+        <span class="domain-icon">🔐</span>
+        <div class="domain-name">Zero-Trust Architecture</div>
+        <div class="domain-desc">Secure-by-design operational environments built on identity-first access, continuous verification, and least-privilege enforcement at every layer.</div>
+        <div class="domain-tags">
+          <span class="tag">Identity-first</span>
+          <span class="tag">BeyondCorp</span>
+          <span class="tag">Microseg.</span>
+        </div>
+      </div>
+      <div class="domain-card reveal reveal-delay-2">
+        <div class="domain-num">03 // DOMAIN</div>
+        <span class="domain-icon">⚡</span>
+        <div class="domain-name">Enterprise Automation</div>
+        <div class="domain-desc">Governance-first automation frameworks that scale operations in regulated environments — every action attributed, audited, and reversible.</div>
+        <div class="domain-tags">
+          <span class="tag">Policy-as-code</span>
+          <span class="tag">Audit trails</span>
+          <span class="tag">HITL</span>
+        </div>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-num">04 // DOMAIN</div>
+        <span class="domain-icon">🛰️</span>
+        <div class="domain-name">Repository Engineering</div>
+        <div class="domain-desc">GitHub ecosystems built to inspire institutional trust and convert opportunities — the kind that survives technical due diligence on first pass.</div>
+        <div class="domain-tags">
+          <span class="tag">Trust signals</span>
+          <span class="tag">Due diligence</span>
+          <span class="tag">Commercial</span>
+        </div>
+      </div>
+      <div class="domain-card reveal reveal-delay-1">
+        <div class="domain-num">05 // DOMAIN</div>
+        <span class="domain-icon">💎</span>
+        <div class="domain-name">Digital Asset Packaging</div>
+        <div class="domain-desc">Technical products positioned for acquisition, sponsorship, and recurring revenue. Bridging the gap between engineering excellence and commercial readiness.</div>
+        <div class="domain-tags">
+          <span class="tag">Acquisition-ready</span>
+          <span class="tag">Monetisation</span>
+          <span class="tag">IP strategy</span>
+        </div>
+      </div>
+      <div class="domain-card reveal reveal-delay-2">
+        <div class="domain-num">06 // DOMAIN</div>
+        <span class="domain-icon">🎯</span>
+        <div class="domain-name">Architecture Advisory</div>
+        <div class="domain-desc">A standing advisory relationship for principals who make architecture decisions with long-term consequences. Not a retainer. A trusted second opinion.</div>
+        <div class="domain-tags">
+          <span class="tag">Retained</span>
+          <span class="tag">C-suite</span>
+          <span class="tag">Strategic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section id="systems">
+  <div class="section-inner">
+    <div class="section-label reveal">Flagship Infrastructure</div>
+    <h2 class="section-title reveal reveal-delay-1">System <em>registry</em></h2>
+
+    <table class="systems-table reveal reveal-delay-2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>System</th>
+          <th>Classification</th>
+          <th>Threat Posture</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sys-id">SYS·01</td>
+          <td class="sys-name"><span class="sys-icon">🏛️</span>Sovereign System Architecture</td>
+          <td><span class="sys-class">Public Authority Hub</span></td>
+          <td class="sys-posture">Hardened</td>
+          <td><span class="sys-status">Active</span></td>
+        </tr>
+        <tr>
+          <td class="sys-id">SYS·02</td>
+          <td class="sys-name"><span class="sys-icon">⚡</span>ProofChain AI Enterprise</td>
+          <td><span class="sys-class">Trust Infrastructure</span></td>
+          <td class="sys-posture">Cryptographically Verified</td>
+          <td><span class="sys-status">Active</span></td>
+        </tr>
+        <tr>
+          <td class="sys-id">SYS·03</td>
+          <td class="sys-name"><span class="sys-icon">🛰️</span>Sentinel Prime</td>
+          <td><span class="sys-class">SecOps Command</span></td>
+          <td class="sys-posture">Actively Monitored</td>
+          <td><span class="sys-status">Active</span></td>
+        </tr>
+        <tr>
+          <td class="sys-id">SYS·04</td>
+          <td class="sys-name"><span class="sys-icon">🔒</span>HoloCard UI</td>
+          <td><span class="sys-class">Zero-Dep Interface</span></td>
+          <td class="sys-posture">Minimal Attack Surface</td>
+          <td><span class="sys-status">Active</span></td>
+        </tr>
+        <tr>
+          <td class="sys-id">SYS·05</td>
+          <td class="sys-name"><span class="sys-icon">🤖</span>AI Automation Empire</td>
+          <td><span class="sys-class">Governance Framework</span></td>
+          <td class="sys-posture">Compliance-First</td>
+          <td><span class="sys-status">Active</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="philosophy-quote reveal">
+      "Security is not a product.<br>It is a property of a system —<br>engineer it in, or accept that it isn't there."
+    </div>
+    <div class="philosophy-author reveal reveal-delay-1">— Ciprian Stefan Plesca</div>
+    <div class="philosophy-divider"></div>
+
+    <div class="section-label reveal">Architecture Law</div>
+    <h2 class="section-title reveal reveal-delay-1">Engineering <em>principles</em></h2>
+
+    <div class="principles-grid" style="margin-top:48px">
+      <div class="principle reveal">
+        <div class="principle-code">P·01 // SOVEREIGNTY FIRST</div>
+        <div class="principle-text">No critical capability may depend on infrastructure that cannot be owned, controlled, and operated independently of the vendor.</div>
+      </div>
+      <div class="principle reveal reveal-delay-1">
+        <div class="principle-code">P·02 // THREAT MODEL PRECEDES DESIGN</div>
+        <div class="principle-text">No system may be designed before its threat model is documented. Architecture without a threat model is optimism dressed as engineering.</div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-code">P·03 // IDENTITY IS THE PERIMETER</div>
+        <div class="principle-text">Access decisions are made on verified identity + device posture + contextual policy — never on network location alone.</div>
+      </div>
+      <div class="principle reveal reveal-delay-1">
+        <div class="principle-code">P·04 // AUDIT BY DEFAULT</div>
+        <div class="principle-text">Every significant system action produces an immutable, timestamped log entry. Logging is not a feature. It is a design constraint.</div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-code">P·05 // LEAST PRIVILEGE AT EVERY LAYER</div>
+        <div class="principle-text">Every component, service, user, and automated process receives only the permissions required to perform its defined function — nothing more.</div>
+      </div>
+      <div class="principle reveal reveal-delay-1">
+        <div class="principle-code">P·06 // FAIL SECURE</div>
+        <div class="principle-text">When a system fails, it must fail in the direction of security — denying access rather than granting it, stopping rather than continuing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label reveal">Engagement Catalogue</div>
+    <h2 class="section-title reveal reveal-delay-1">Strategic <em>services</em></h2>
+    <p class="reveal reveal-delay-2" style="margin-top:16px;font-size:16px;color:var(--text-2);max-width:560px">
+      This is not a service menu. It is a capability declaration. Engagements are selected, not sold.
+    </p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01 //</div>
+        <div class="service-name">Sovereign AI Strategy & Deployment</div>
+        <div class="service-desc">Private, self-hosted AI infrastructure for organisations that cannot place sensitive workloads on shared cloud infrastructure.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>Threat-modelled AI architecture</div>
+          <div><span>→</span>Self-hosted LLM deployment</div>
+          <div><span>→</span>Compliance mapping (GDPR/NIS2)</div>
+          <div><span>→</span>Prompt governance framework</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">02 //</div>
+        <div class="service-name">Zero-Trust Architecture Design</div>
+        <div class="service-desc">End-to-end zero-trust architecture for organisations migrating away from perimeter-based security models.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>CISA ZTM maturity assessment</div>
+          <div><span>→</span>Identity-first access design</div>
+          <div><span>→</span>Microsegmentation blueprint</div>
+          <div><span>→</span>ISO 27001 / NIST CSF mapping</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03 //</div>
+        <div class="service-name">Enterprise Repository Engineering</div>
+        <div class="service-desc">GitHub presence designed for institutional trust — the kind that survives technical due diligence and converts serious opportunities.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>Trust-optimised ecosystem audit</div>
+          <div><span>→</span>Authority architecture design</div>
+          <div><span>→</span>Commercial signal layer</div>
+          <div><span>→</span>Monetisation pathway design</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">04 //</div>
+        <div class="service-name">Enterprise Automation Framework</div>
+        <div class="service-desc">Governance-first automation for organisations that need to scale operations without scaling risk in regulated environments.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>Process audit & mapping</div>
+          <div><span>→</span>Role-based execution design</div>
+          <div><span>→</span>Policy-as-code implementation</div>
+          <div><span>→</span>Audit log architecture</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05 //</div>
+        <div class="service-name">Digital Asset Packaging</div>
+        <div class="service-desc">Technical products positioned for acquisition, sponsorship, and recurring revenue. Engineering excellence made commercially legible.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>Acquisition readiness audit</div>
+          <div><span>→</span>Licensing strategy design</div>
+          <div><span>→</span>Sponsorship tier architecture</div>
+          <div><span>→</span>Positioning for fundraising</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">06 //</div>
+        <div class="service-name">Architecture Advisory (Retained)</div>
+        <div class="service-desc">A standing advisory relationship for principals making architecture decisions whose consequences will last 5+ years.</div>
+        <div class="service-deliverables">
+          <div><span>→</span>Monthly architecture review</div>
+          <div><span>→</span>Security posture check-ins</div>
+          <div><span>→</span>On-call escalation</div>
+          <div><span>→</span>Quarterly roadmap refinement</div>
+        </div>
+        <a href="https://cal.com/ciprian-stefan-plesca" class="service-link" target="_blank">Begin briefing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="section-inner">
+    <div class="metrics-grid">
+      <div class="metric reveal">
+        <div class="metric-num">5<em>+</em></div>
+        <div class="metric-label">Flagship Systems in Production</div>
+      </div>
+      <div class="metric reveal reveal-delay-1">
+        <div class="metric-num">0<em>✦</em></div>
+        <div class="metric-label">External JS Dependencies</div>
+      </div>
+      <div class="metric reveal reveal-delay-2">
+        <div class="metric-num">EU<em>·</em></div>
+        <div class="metric-label">Registered Entity · VAT Active</div>
+      </div>
+      <div class="metric reveal reveal-delay-3">
+        <div class="metric-num">10<em>×</em></div>
+        <div class="metric-label">Architecture Principles · Enforced</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTITY -->
+<section id="entity">
+  <div class="section-inner">
+    <div class="section-label reveal">Legal & Corporate</div>
+    <h2 class="section-title reveal reveal-delay-1">Entity <em>record</em></h2>
+    <p class="reveal reveal-delay-2" style="margin-top:16px;font-size:15px;color:var(--text-2);max-width:560px">
+      All entity details are publicly verifiable. Transparency is not a courtesy —
+      for a practice built on trust infrastructure, it is a design requirement.
+    </p>
+    <div class="entity-grid">
+      <div class="reveal reveal-delay-1">
+        <div class="entity-block">
+          <div class="entity-block-title">Official Company Record</div>
+          <div class="entity-row"><span class="entity-key">Legal Name</span><span class="entity-val">Xolo Go OÜ — Ciprian-Stefan Plesca</span></div>
+          <div class="entity-row"><span class="entity-key">Structure</span><span class="entity-val">Partnership (OÜ)</span></div>
+          <div class="entity-row"><span class="entity-key">Registry Code</span><span class="entity-val green">14717109</span></div>
+          <div class="entity-row"><span class="entity-key">EU VAT Number</span><span class="entity-val gold">EE102156920</span></div>
+          <div class="entity-row"><span class="entity-key">Jurisdiction</span><span class="entity-val">Estonia, European Union</span></div>
+          <div class="entity-row"><span class="entity-key">Email</span><span class="entity-val">stefanowien777@gmail.com</span></div>
+          <div class="entity-row"><span class="entity-key">Phone</span><span class="entity-val">+40 759 687 560</span></div>
+          <div class="entity-row"><span class="entity-key">Web</span><span class="entity-val green">localpulse.pro</span></div>
+        </div>
+      </div>
+      <div class="trust-signals reveal reveal-delay-2">
+        <div class="trust-item">
+          <div class="trust-icon">🇪🇺</div>
+          <div>
+            <div class="trust-label">EU Member State</div>
+            <div class="trust-value">Full access to EU single market. GDPR, NIS2, and DORA compliance by jurisdiction.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">✅</div>
+          <div>
+            <div class="trust-label">VAT Verified</div>
+            <div class="trust-value">EU VAT active — verifiable via VIES. EU Reverse Charge applies for B2B engagements.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📋</div>
+          <div>
+            <div class="trust-label">Public Registry</div>
+            <div class="trust-value">Verifiable at ariregister.rik.ee — transparent, auditable, no shell risk.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <div class="trust-label">Xolo-Administered</div>
+            <div class="trust-value">Professional-grade payroll, compliance, and tax administration through Xolo platform.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <span class="cta-tag reveal">⚠ Capacity: Limited // Selection: Deliberate</span>
+    <h2 class="cta-title reveal reveal-delay-1">Ready to operate<br><em>at this level?</em></h2>
+    <p class="cta-sub reveal reveal-delay-2">
+      Exploratory calls are not onboarded.<br>Strategic briefings are.
+    </p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="https://cal.com/ciprian-stefan-plesca" class="btn-primary" target="_blank">
+        → Book Private Briefing
+      </a>
+      <a href="mailto:stefanowien777@gmail.com" class="btn-secondary">
+        Send Direct Message
+      </a>
+    </div>
+    <div class="cta-contact reveal">
+      <a href="https://www.localpulse.pro" target="_blank">localpulse.pro</a>
+      &nbsp;·&nbsp;
+      <a href="tel:+40759687560">+40 759 687 560</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:stefanowien777@gmail.com">stefanowien777@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-entity">
+    <div><span>Xolo Go OÜ</span> — Ciprian-Stefan Plesca</div>
+    <div>Registry <span>14717109</span> · EU VAT <span>EE102156920</span> · Estonia</div>
+    <div><span>localpulse.pro</span></div>
+  </div>
+  <div class="footer-links">
+    <a href="https://cal.com/ciprian-stefan-plesca" target="_blank">Book Briefing</a>
+    <a href="mailto:stefanowien777@gmail.com">Email</a>
+    <a href="tel:+40759687560">Phone</a>
+    <a href="#manifest">Doctrine</a>
+    <a href="#services">Services</a>
+    <a href="#entity">Entity</a>
+  </div>
+  <div class="footer-copy">
+    © 2025 Xolo Go OÜ — Ciprian-Stefan Plesca · EE102156920 · All rights reserved ·
+    Engineered for operators, not algorithms.
+  </div>
+</footer>
+
+<script>
+// ── CUSTOM CURSOR
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+
+function animRing(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  cursorRing.style.left=rx+'px';cursorRing.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.width='18px';cursor.style.height='18px';
+    cursor.style.background='transparent';
+    cursorRing.style.width='52px';cursorRing.style.height='52px';
+    cursorRing.style.borderColor='rgba(0,232,122,0.5)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.width='10px';cursor.style.height='10px';
+    cursor.style.background='var(--green)';
+    cursorRing.style.width='36px';cursorRing.style.height='36px';
+    cursorRing.style.borderColor='rgba(0,232,122,0.3)';
+  });
+});
+
+// ── SCROLL REVEAL
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  });
+},{threshold:0.12});
+reveals.forEach(r=>obs.observe(r));
+
+// ── NAV SCROLL STATE
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>60){nav.style.padding='14px 48px'}
+  else{nav.style.padding='20px 48px'}
+});
+
+// ── SMOOTH ANCHOR
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
