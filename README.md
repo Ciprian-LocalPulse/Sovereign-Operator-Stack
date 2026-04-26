@@ -106,7 +106,7 @@ sovereign-repo/
 |:---|:---:|:---|
 | 🌐 Official Gateway | `PUBLIC` | [localpulse.pro](https://www.localpulse.pro) |
 | 📅 Private Technical Briefing | `RESTRICTED` | [cal.com/ciprian-stefan-plesca](https://cal.com/ciprian-stefan-plesca) |
-| 📧 Secure Communication | `DIRECT` | stefanowien777@gmail.com |
+| 📧 Secure Communication | `DIRECT` | contact@localpulse.pro |
 | 📞 Executive Line | `DIRECT` | +40 759 687 560 |
 | 💎 Research Support | `OPEN` | [GitHub Sponsors](https://github.com/sponsors) |
 
