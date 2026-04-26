@@ -113,4 +113,4 @@ Questions are welcome. Sloppy questions cost everyone time — ask with context.
 ---
 
 *Maintained by Ciprian Stefan Plesca / Xolo Go OÜ (EE102156920)*
-*📧 stefanowien777@gmail.com · 🌐 localpulse.pro*
+*📧 contact@localpulse.pro · 🌐 localpulse.pro*
