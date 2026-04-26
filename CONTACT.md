@@ -51,7 +51,7 @@ This is not a discovery call. A private technical briefing is a structured, time
 ---
 
 ### 📧 Secure Communication
-**stefanowien777@gmail.com**
+**contact@localpulse.pro**
 
 ```
 SUBJECT LINE FORMAT: [CONTEXT] Brief description
@@ -92,7 +92,7 @@ eu_vat:          "EE102156920"
 jurisdiction:    "Republic of Estonia, European Union"
 
 contact:
-  email:         "stefanowien777@gmail.com"
+  email:         "contact@localpulse.pro"
   phone:         "+40 759 687 560"
   web:           "https://www.localpulse.pro"
   booking:       "https://cal.com/ciprian-stefan-plesca"
@@ -162,7 +162,7 @@ Most enquiries are screened and declined in writing. This is not a judgment on t
 ║   If it isn't, neither of us should spend time on it.               ║
 ║                                                                     ║
 ║         📅  cal.com/ciprian-stefan-plesca                           ║
-║         📧  stefanowien777@gmail.com                                ║
+║         📧  contact@localpulse.pro                              ║
 ║         📞  +40 759 687 560                                         ║
 ║         🌐  localpulse.pro                                          ║
 ║                                                                     ║
